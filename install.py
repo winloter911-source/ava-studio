@@ -2,7 +2,7 @@
 import argparse,hashlib,json,os,platform,re,shutil,stat,subprocess,sys,tempfile,time,urllib.request,zipfile
 from pathlib import Path,PurePosixPath
 REPO='winloter911-source/ava-studio'
-EXPECTED_SHA256='dd01086695a9a575227dc2dbb0d903d3e225f0153bfb92b7ec12ea39f434c94d'
+EXPECTED_SHA256='9bbbdb87ad0f6854c2920aabdd5a29023a9e6088ddec777f2140c7f979a0f133'
 MAX_DOWNLOAD=1024**3
 MAX_EXPANDED=2*1024**3
 
@@ -25,10 +25,10 @@ def download(url,dest,limit):
 
 def fetch_release(work):
  meta=work/'release.json'
- try:download(f'https://api.github.com/repos/{REPO}/releases/latest',meta,2*1024**2)
- except Exception as e:raise ValueError('No accessible published latest release. Draft releases cannot be installed by members.') from e
+ try:download(f'https://api.github.com/repos/{REPO}/releases/tags/v1.0.1',meta,2*1024**2)
+ except Exception as e:raise ValueError('No accessible published v1.0.1 release. Draft releases cannot be installed by members.') from e
  data=json.loads(meta.read_text())
- allowed={'AVA-Studio.zip','AVA-Studio-2026-11-15.zip'}
+ allowed={'AVA-Studio-v1.0.1.zip'}
  assets=[a for a in data.get('assets',[]) if a.get('name') in allowed]
  if len(assets)!=1:raise ValueError('Release must contain exactly one AVA Studio ZIP asset.')
  url=assets[0].get('browser_download_url','')

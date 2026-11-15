@@ -21,6 +21,10 @@ The agent downloads the installer files, installs missing prerequisites, verifie
 
 Add your own Apify and ElevenLabs keys in Settings. Services may charge your account. Roman's visual character is included; personal voice credentials are not.
 
+## Updating from v1.0.0
+
+Download AVA-Studio-v1.0.1-Fix.zip from the v1.0.1 release. Close Studio, extract the repair and ask your agent to follow its README.md for your existing installation. Your keys, settings and projects are preserved; application files are backed up.
+
 ## Downloads
 
 The complete app is attached to [Releases](https://github.com/winloter911-source/ava-studio/releases). Download the uploaded AVA Studio ZIP, not GitHub's automatic Source code archive. Draft releases are unavailable to participants.
